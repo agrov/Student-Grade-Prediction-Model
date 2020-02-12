@@ -14,7 +14,7 @@ CsvToHtmlTable = {
         $.each(customFormatting, function (i, v) {
             var colIdx = v[0];
             var func = v[1];
-            customTemplates[parseInt(colIdx)] = func;
+            customTemplates[parseInt(colIdx,10)] = func;
         });
 
         var $table = $("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
@@ -28,7 +28,7 @@ CsvToHtmlTable = {
                 var csvHeaderRow = csvData[0];
                 var $tableHeadRow = $("<tr></tr>");
                 for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
-                    $tableHeadRow.append($("<th></th>").text(csvHeaderRow[parseInt(headerIdx)]));
+                    $tableHeadRow.append($("<th></th>").text(csvHeaderRow[parseInt(headerIdx,10)]));
                 }
                 $tableHead.append($tableHeadRow);
 
@@ -37,13 +37,13 @@ CsvToHtmlTable = {
 
                 for (var rowIdx = 1; rowIdx < csvData.length; rowIdx++) {
                     var $tableBodyRow = $("<tr></tr>");
-                    for (var colIdx = 0; colIdx < csvData[parseInt(rowIdx)].length; colIdx++) {
+                    for (var colIdx = 0; colIdx < csvData[parseInt(rowIdx,10)].length; colIdx++) {
                         var $tableBodyRowTd = $("<td></td>");
-                        var cellTemplateFunc = customTemplates[parseInt(colIdx)];
+                        var cellTemplateFunc = customTemplates[parseInt(colIdx,10)];
                         if (cellTemplateFunc) {
-                            $tableBodyRowTd.html(cellTemplateFunc(csvData[parseInt(rowIdx)][parseInt(colIdx)]));
+                            $tableBodyRowTd.html(cellTemplateFunc(csvData[parseInt(rowIdx,10)][parseInt(colIdx,10)]));
                         } else {
-                            $tableBodyRowTd.text(csvData[parseInt(rowIdx)][parseInt(colIdx)]);
+                            $tableBodyRowTd.text(csvData[parseInt(rowIdx,10)][parseInt(colIdx,10)]);
                         }
                         $tableBodyRow.append($tableBodyRowTd);
                         $tableBody.append($tableBodyRow);
