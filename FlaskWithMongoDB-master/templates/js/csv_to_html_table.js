@@ -28,7 +28,7 @@ CsvToHtmlTable = {
                 var csvHeaderRow = csvData[0];
                 var $tableHeadRow = $("<tr></tr>");
                 for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
-                    $tableHeadRow.append($("<th></th>").text(csvHeaderRow[headerIdx]));
+                    $tableHeadRow.append($("<th></th>").text(csvHeaderRow[parseInt(headerIdx)]));
                 }
                 $tableHead.append($tableHeadRow);
 
@@ -37,13 +37,13 @@ CsvToHtmlTable = {
 
                 for (var rowIdx = 1; rowIdx < csvData.length; rowIdx++) {
                     var $tableBodyRow = $("<tr></tr>");
-                    for (var colIdx = 0; colIdx < csvData[rowIdx].length; colIdx++) {
+                    for (var colIdx = 0; colIdx < csvData[parseInt(rowIdx)].length; colIdx++) {
                         var $tableBodyRowTd = $("<td></td>");
-                        var cellTemplateFunc = customTemplates[colIdx];
+                        var cellTemplateFunc = customTemplates[parseInt(colIdx)];
                         if (cellTemplateFunc) {
-                            $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
+                            $tableBodyRowTd.html(cellTemplateFunc(csvData[parseInt(rowIdx)][parseInt(colIdx)]));
                         } else {
-                            $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            $tableBodyRowTd.text(csvData[parseInt(rowIdx)][parseInt(colIdx)]);
                         }
                         $tableBodyRow.append($tableBodyRowTd);
                         $tableBody.append($tableBodyRow);
