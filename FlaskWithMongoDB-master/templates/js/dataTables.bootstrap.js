@@ -10,7 +10,7 @@
  * controls using Bootstrap. See http://datatables.net/manual/styling/bootstrap
  * for further information.
  */
-(function(window, document, undefined){
+(function(window, document){
 
 var factory = function( $, DataTable ) {
 "use strict";
