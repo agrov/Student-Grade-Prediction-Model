@@ -6,7 +6,7 @@ UML:
 <b>Metrics:</b><br>
 1)Sonarqube:
 
-<a href="https://sonarqube.com/dashboard/index/Student-Grade-Prediction-Model"><img src="https://sonarqube.com/api/badges/gate?key=Student-Grade-Prediction-Model"/></a>
+<a href="https://sonarqube.com/dashboard/index/agrov_Student-Grade-Prediction-Model"><img src="https://sonarqube.com/api/badges/gate?key=agrov_Student-Grade-Prediction-Model"/></a>
 
 [![Quality Gate](https://sonarqube.com/api/badges/gate?key=Student-Grade-Prediction-Model)](https://sonarqube.com/dashboard/index/agrov_Student-Grade-Prediction-Model)
 2)Codacy:
