@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <title>Flask Intro - login page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +15,11 @@
   </div>
 
   <div class="container">
-  <center>
-    <label for="uname"><b>Username</b></label>
+
+    <label for="uname"><strong>Username</strong></label>
 	<input type="text" placeholder="Enter Username" name="username" value="{{
           request.form.username }}"><br>
-    <label for="psw"><b>Password</b></label>
+    <label for="psw"><strong>Password</strong></label>
     <input type="password" placeholder="Enter Password" name="password" value="{{
           request.form.password }}"><br>
         
@@ -27,7 +27,7 @@
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
-	</center>
+	
   </div>
 
 </form>
