@@ -2,7 +2,7 @@
 
 UML:
 
-
+![](UML/LoginActivityDiagaram.png)
 
 
 <b>Metrics:</b><br>
