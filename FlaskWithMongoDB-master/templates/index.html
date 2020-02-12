@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 	<head>
 		<title>{{t}}</title>
 		<!-- href="/static/assets/style.css"-->
@@ -37,9 +37,11 @@
 	</form>
 	</div>-->
 	<form action="/action" method="POST">
-	<table>
+	<table aria-describedby="mydesc">
 		<tr>
+			<th></th>
 		<td><span style="font-weight:bold">Gender</span></td> <td>:</td>
+			<th></th>
 		<td><select name="Gender">
             <option value="F">Female</option>
 			<option value="M">Male</option>
@@ -125,7 +127,7 @@
 		<input type="radio" name="StudentAbsenceDays" value='Above-7' id='absentchoice2' /> <label for="absentchoice1">Above 7 days</label></td>
 	    </tr>
 		
-		<tr><td><button type="submit" name='goto_last'> <b>Add the new Student and Predict student's grade class</b> </button></td>
+		<tr><td><button type="submit" name='goto_last'> <strong>Add the new Student and Predict student's grade class</strong> </button></td>
 		</tr>
 		</table>
 	</form>
