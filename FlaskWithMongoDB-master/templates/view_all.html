@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{t}}</title>
+		<!-- href="/static/assets/style.css"-->
+		<link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/style.css')}}" >
+		<link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/emoji.css')}}" >
+		<script src="{{ url_for('static',filename='assets/twemoji.min.js')}}"></script>  
+		<script src="{{ url_for('static',filename='assets/emoji.js')}}"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+
+<style type="text/css">
+
+.highlight {
+
+    background-color: rgb(255,0,0);
+
+}
+
+</style>
+
+<script type="text/javascript">
+
+window.onload = function() {
+
+var rowCount = $('#data >tbody >tr').length;
+
+
+    var $tbody = $("#data tbody").on('click', 'tr', function() {
+            highlight($(this));
+    });
+	$('#goto_last').click(function() {
+    highlight($("#data tr").eq(rowCount));
+});
+    function highlight($row) {
+            if ($row.length) {
+                $tbody.children().removeClass("highlight");
+                $row.addClass('highlight');
+                $("#rownum").val($row[0].rowIndex);
+            }
+    }
+
+}
+</script>
+
+	</head>
+<body>
+	<h1>{{ h }}</h1>
+	<ul>
+		<li><a href="/list" class="{{ a1 }}">All Students</a></li>
+		<li><a href="/index" class="{{ a2 }}">Add a Student</a></li>
+		<li><a href="/at_risk" class="{{ a3 }}">At-Risk Students</a></li>
+		<li><a href="/logout" class="{{ a3 }}">Log out</a></li>
+	</ul>
+	<hr>
+	{% if stu_col[0] %}
+	<div id="table-wrapper">
+    <div id="table-scroll">
+	<table>
+	    <tr id="row">
+	    <th class="Gender" id=1>Gender</th>
+		<th class="Nationality" id=2>Nationality</th>
+		<th class="PlaceofBirth" id=3>Birth Place</th>
+		<th class="StageID" id=4>Highest Schooling Stage</th>
+		<th class="GradeID" id=5>Grade</th>
+		<th class="SectionID" id=6>Section</th>
+		
+		<th class="Topic" id=7>Course Topic</th>
+		<th class="Semester" id=8>School Year Semester</th>
+		<th class="Relation" id=9>Parent Responsible for Student</th>
+		<th class="raisedhands" id=10>Raised hands</th>
+		<th class="VisitedResources" id=11>Visited Resources</th>
+		<th class="AnnouncementsView" id=12>Announcements View</th>
+		
+		<th class="Discussion" id=13>Discussions</th>
+		<th class="ParentAnsweringSurvey" id=14>Parent Answering Survey</th>
+		<th class="ParentschoolSatisfaction" id=15>Parent School Satisfaction</th>
+		<th class="StudentAbsenceDays" id=16>Student Absence Days</th>
+		<th class="Class" id=17>Grade Class</th>
+		
+		<th class="func1" id=18>Remove</th>
+		<th class="func2" id=19>Modify</th>
+	    </tr>
+	{% for todo in stu_col %}
+		<tr class="datas">
+			<td class="Gender">{{ todo["Gender"]}}</td>
+			<td class="Nationality">{{ todo["Nationality"]}}</td>
+			<td class="PlaceofBirth">{{ todo["PlaceofBirth"]}}</td>
+			<td class="StageID">{{ todo["StageID"]}}</td>
+			<td class="GradeID">{{ todo["GradeID"]}}</td>
+			<td class="SectionID">{{ todo["SectionID"]}}</td>
+			
+			<td class="Topic">{{ todo["Topic"]}}</td>
+			<td class="Semester">{{ todo["Semester"]}}</td>
+			<td class="Relation">{{ todo["Relation"]}}</td>
+			<td class="raisedhands">{{ todo["raisedhands"]}}</td>
+			<td class="VisitedResources">{{ todo["VisitedResources"]}}</td>
+			<td class="AnnouncementsView">{{ todo["AnnouncementsView"]}}</td>
+			
+			<td class="Discussion">{{ todo["Discussion"]}}</td>
+			<td class="ParentAnsweringSurvey">{{ todo["ParentAnsweringSurvey"]}}</td>
+			<td class="ParentschoolSatisfaction">{{ todo["ParentschoolSatisfaction"]}}</td>
+			<td class="StudentAbsenceDays">{{ todo["StudentAbsenceDays"]}}</td>
+			<td class="Class">{{ todo["Class"]}}</td>
+			<td class="func1"><a href="./remove?_id={{ todo['_id'] }}"><button type="submit">DELETE</button></a></td>
+			<td class="func1"><a href="./update?_id={{ todo['_id'] }}"><button type="submit">EDIT</button></a></td>
+		</tr>
+	{% endfor %}
+	</table>
+	{% else %}
+		<h4>No Students in the System !!</h4>
+	{% endif %}
+	<hr/>
+	</div>
+	</div>
+</body>
+</html>
