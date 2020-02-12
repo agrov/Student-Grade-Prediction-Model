@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 	<head>
 		<title>{{t}}</title>
 		<link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/style.css')}}" >
@@ -31,7 +31,9 @@
 		Unique Object ID : {{ task['_id'] }}<br/>
 	<input type="text" name="_id" value="{{ task['_id'] }}" hidden>
 
-	<table>
+	<table aria-describedby="mydesc">
+		<th></th>
+		<th></th>
 	<tr>
 	<td>Gender</td><td> : </td><td><input type="text" name="name" value="{{ task['Gender'] }}" placeholder="{{ task['Gender'] }}"></td>
 	</tr>
