@@ -14,7 +14,7 @@ CsvToHtmlTable = {
         $.each(customFormatting, function (i, v) {
             var colIdx = v[0];
             var func = v[1];
-            customTemplates[colIdx] = func;
+            customTemplates[parseInt(colIdx)] = func;
         });
 
         var $table = $("<table class='table table-striped table-condensed' id='" + el + "-table'></table>");
