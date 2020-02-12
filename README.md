@@ -2,7 +2,6 @@
 
 UML:
 
-
 <b>Metrics:</b><br>
 1)Sonarqube:
 
