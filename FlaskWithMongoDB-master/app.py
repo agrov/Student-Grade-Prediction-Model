@@ -18,7 +18,7 @@ client = MongoClient("mongodb://127.0.0.1:27017") #host uri
 db = client.mymongodb    #Select the database
 stu_col = db.student #Select the collection name
 
-data = pd.read_csv('data/Edu.csv')
+data = pd.read_csv('FlaskWithMongoDB-master/data/Edu.csv')
 data_json = json.loads(data.to_json(orient='records'))
 stu_col.remove()
 stu_col.insert(data_json)
