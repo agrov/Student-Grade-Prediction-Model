@@ -3,3 +3,4 @@ Werkzeug
 pymongo
 pandas
 flask_login
+mockupdb
