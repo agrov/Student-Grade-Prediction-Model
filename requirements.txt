@@ -3,3 +3,4 @@ Werkzeug
 pymongo
 pandas
 bson
+flask_login
