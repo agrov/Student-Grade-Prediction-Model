@@ -2,4 +2,8 @@ python==3.7.4
 Flask==1.1.1
 Werkzeug==0.16.0
 pymongo==2.7.2
+pytest
+pandas
+json
+
 
