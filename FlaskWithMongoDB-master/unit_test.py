@@ -8,10 +8,10 @@ import pandas as pd
 from pymongo import MongoClient
 from mockupdb import MockupDB, go, Command
 #from bson import ObjectId as mockup_oid
-file_name="Edu_test.csv"
+file_name="Edu.csv"
 import json
 from mockupdb import MockupDB, go, Command
-data = pd.read_csv('data/'+file_name)
+data = pd.read_csv('FlaskWithMongoDB-master/data/'+file_name)
 client = MongoClient("mongodb://127.0.0.1:27017") #host uri
 db = client.mymongodb    #Select the database
 stu_col = db.student #Select the collection name
