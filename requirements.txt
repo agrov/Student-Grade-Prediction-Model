@@ -1,6 +1,5 @@
 Flask
 Werkzeug
 pymongo
-unittest
 pandas
 bson
