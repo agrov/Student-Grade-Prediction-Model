@@ -2,6 +2,8 @@
 sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
 language: python
 install: pip install -r requirements.txt
+services:
+  - mongodb
 before_script:
   - export FLASK_DEBUG=1
 # command to run tests
