@@ -4,6 +4,12 @@ on: [push]
 
 jobs:
   build:
+    services:
+      mongodb:
+        
+        image: mongo:3.4.23
+        ports: 
+          - 27017:27017
 
     runs-on: ubuntu-latest
 
