@@ -7,7 +7,7 @@ from flask import url_for
 import pandas as pd
 from pymongo import MongoClient
 from mockupdb import MockupDB, go, Command
-from bson import ObjectId as mockup_oid
+#from bson import ObjectId as mockup_oid
 file_name="Edu_test.csv"
 import json
 from mockupdb import MockupDB, go, Command
