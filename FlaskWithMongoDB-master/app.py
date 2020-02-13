@@ -110,7 +110,7 @@ def action ():
     cursor = stu_col.find({})
     # Expand the cursor and construct the DataFrame
     df =  pd.DataFrame(list(cursor))
-    df.to_csv('data/Edu.csv')
+    df.to_csv('FlaskWithMongoDB-master/data/Edu.csv')
     return redirect("/list")
 
 @app.route("/remove")
@@ -120,7 +120,7 @@ def remove ():
     stu_col.remove({"_id":ObjectId(key)})
     cursor=stu_col.find({})
     df=pd.DataFrame(list(cursor))
-    df.to_csv('data/Edu.csv')
+    df.to_csv('FlaskWithMongoDB-master/data/Edu.csv')
     return redirect("/list")
 
 @app.route("/update")
@@ -153,7 +153,7 @@ def action3 ():
     cursor = stu_col.find({})
     # Expand the cursor and construct the DataFrame
     df =  pd.DataFrame(list(cursor))
-    df.to_csv('data/Edu.csv')
+    df.to_csv('FlaskWithMongoDB-master/data/Edu.csv')
     return redirect("/list")
 
 if __name__ == "__main__":
