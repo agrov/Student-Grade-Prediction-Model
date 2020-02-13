@@ -3,7 +3,6 @@ Werkzeug
 pymongo
 pytest
 pandas
-json
 bson
 
 
