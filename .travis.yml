@@ -5,4 +5,4 @@ install: pip install -r requirements.txt
 before_script:
   - export FLASK_DEBUG=1
 # command to run tests
-script: "FlaskWithMongoDB-master/python app.py"
+script: " python FlaskWithMongoDB-master/app.py"
