@@ -4,7 +4,7 @@ import pandas as pd
 from pymongo import MongoClient
 from os import environ
 import json
-from mockupdb import MockupDB, go
+from mockupdb import MockupDB
 
 file_name="Edu.csv"
 data = pd.read_csv('FlaskWithMongoDB-master/data/'+file_name)
@@ -45,12 +45,10 @@ class TestObjectCreation(unittest.TestCase):
     #Check the functioning of Home Page
     def test_home_page(self):
         response=self.app.get('/index')
-        self.assertEqual(response.status_code,200)
-        
+        self.assertEqual(response.status_code,200)        
     #Check the functioning of "All Students Page
     def test_view(self):
         response=self.app.get('/list')
         self.assertEqual(response.status_code,200)        
-
 if __name__ == '__main__':
     unittest.main()
