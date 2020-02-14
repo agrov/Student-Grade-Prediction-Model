@@ -5,6 +5,7 @@ import flask
 import pandas as pd
 from pymongo import MongoClient
 import json
+from os import environ
 
 file_name="Edu.csv"
 data = pd.read_csv('FlaskWithMongoDB-master/data/'+file_name)
@@ -15,7 +16,7 @@ data_json = json.loads(data.to_json(orient='records'))
 stu_col.remove()
 stu_col.insert(data_json)
 
-from os import environ
+
 class TestObjectCreation(unittest.TestCase):
 
     def setUp(self):
@@ -54,23 +55,7 @@ class TestObjectCreation(unittest.TestCase):
         stu_col1=stu_col.find({})
         for i in stu_col1:
             self.assertIn(i['Class'],'L|M|H')
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
+       
 if __name__ == '__main__':
     unittest.main()
