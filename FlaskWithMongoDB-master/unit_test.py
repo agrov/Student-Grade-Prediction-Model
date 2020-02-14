@@ -1,12 +1,10 @@
 import unittest
 from app import app
-import pymongo
-import flask
 import pandas as pd
 from pymongo import MongoClient
 from os import environ
 import json
-from mockupdb import MockupDB, go, Command
+from mockupdb import MockupDB, go
 
 file_name="Edu.csv"
 data = pd.read_csv('FlaskWithMongoDB-master/data/'+file_name)
@@ -29,20 +27,17 @@ class TestObjectCreation(unittest.TestCase):
         self.app = app.test_client()
         self.server = MockupDB(auto_ismaster=True, verbose=True)
         self.server.run()
-        pass
     
     def tearDown(self):
         pass
     #Check the valid values in Gender variable
     def test_valid_gender_values(self):
-        cursor=stu_col.find({})
         stu_col1=stu_col.find({})
         for i in stu_col1:
             self.assertIn(i['Gender'],'M|F')
             
-    #Check the valid values in Predicted grade variable        
+    #Check the valid values in Predicted grade variable
     def test_valid_predicted_class_values(self):
-        cursor=stu_col.find({})
         stu_col1=stu_col.find({})
         for i in stu_col1:
             self.assertIn(i['Class'],'L|M|H')
