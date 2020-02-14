@@ -1,16 +1,12 @@
 import unittest
 from app import app
-import os
 import pymongo
 import flask
-from flask import url_for
 import pandas as pd
 from pymongo import MongoClient
-from mockupdb import MockupDB, go, Command
-#from bson import ObjectId as mockup_oid
-file_name="Edu.csv"
 import json
-from mockupdb import MockupDB, go, Command
+
+file_name="Edu.csv"
 data = pd.read_csv('FlaskWithMongoDB-master/data/'+file_name)
 client = MongoClient("mongodb://127.0.0.1:27017") #host uri
 db = client.mymongodb    #Select the database
@@ -31,35 +27,33 @@ class TestObjectCreation(unittest.TestCase):
         self.app = app.test_client()
         self.server = MockupDB(auto_ismaster=True, verbose=True)
         self.server.run()
-        # app.testing = True
-        # app.config['MONGO_URI'] = self.server.uri
-        # self.app = app.test_client()
         pass
     
     def tearDown(self):
         pass
-    
+    #Check the values of Gender variable
     def test_valid_gender_values(self):
         cursor=stu_col.find({})
         stu_col1=stu_col.find({})
         for i in stu_col1:
             self.assertIn(i['Gender'],'M|F')
             
+    #Check the functioning of Home Page
     def test_home_page(self):
         response=self.app.get('/index')
         self.assertEqual(response.status_code,200)
         
+    #Check the functioning of "All Students" page
     def test_view(self):
         response=self.app.get('/list')
         self.assertEqual(response.status_code,200)        
-        
-    # def test_valid_delete(self):
-        # id = '5a8f1e368f7936badfbb0cfa'
-        # future = go(self.app.delete, '/remove/')
-        # request = self.server.receives(Command({'delete': 'stu_col', 'ordered': True, 'deletes': [{'q': {'_id': mockup_oid(id)}, 'limit': 1}]}, namespace='app'))
-        # request.ok({'acknowledged': True, 'n': 1})
-        # http_response = future()
-        # self.assertEqual(http_response.status_code, 404)
+       
+    #Check the values of Predicted Class variable
+     def test_valid_predicted_class_values(self):
+        cursor=stu_col.find({})
+        stu_col1=stu_col.find({})
+        for i in stu_col1:
+            self.assertIn(i['Class'],'L|M|H')
     
 
 
